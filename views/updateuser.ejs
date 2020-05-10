@@ -1,0 +1,68 @@
+<h1>Modifier votre profil</h1>
+<form action="/userUpdate/<%= userid %>" method="POST">
+    <input type ="hidden" name ="userid" value = "<%= userid %>" >
+    Nom : 
+    <input type="text" name="name" value="<%= name %>" ><br></br>
+    email:
+    <input type="email" name="email"  value = "<%= email %>"><br></br>
+    Password : 
+    <input type="password" name="password" value="<%= password %>"><br></br>
+    </table>
+    <input class="Save" type="submit" name="save" value="Sauver"><br></br>
+</form>
+<form action="/mainpage" method="get">
+    <button class="Back" type="submit"> Retour à la liste </button></br>
+ </form>
+
+
+ <style>
+
+    body{
+        background-color:honeydew;
+        width: 150%;
+        margin-left: 50px;
+    }
+
+    form{
+        background-color: #E0E0E0;
+        width:25%;
+        text-align:justificy;
+        border-width: 2px;
+        border-style: groove;
+        border-image: initial;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding-left: 6px;
+    }
+
+    input{
+        border-radius: 2px 2px 2px;
+    }
+
+    h1{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	    background-color: black;
+        width:30%;
+        text-align:center;
+        border-radius: 50px;
+	    color: white;
+    }
+
+    .save{
+        border-radius: 12px;
+        background-color: black;
+        border: white;
+        color: white;
+        font-family: Georgia;
+        font-size: 18px;
+    }
+
+    .Back{
+        border-radius: 12px;
+        background-color: green;
+        border: white;
+        color: white;
+        font-family: Georgia;
+        font-size: 18px;
+    }
+
+</style>

@@ -1,0 +1,85 @@
+<h1>Modifier une Série</h1>
+<form action="/updatereading" method="POST">
+    <input type ="hidden" name ="ReadingID" value = "<%= ReadingID %>" > 
+    Titre : 
+    <input type="text" name="Bookname" value="<%= Bookname %>" ><br> </br>
+    Auteur:
+    <input type="text" name="Author" value="<%= Author %>"> <br> </br>
+    Date de parution:
+    <input type="number" name="Publication"  value = "<%= Publication %>"><br> </br>
+    Pages
+    <input type="number" name="Pages" value="<%= Pages %>"><br> </br>
+    Catégorie: 
+    <input type="number" min="0" max="10" name="FK_CatégorieID"  value = "<%= FK_CatégorieID %>"><br> </br>
+    Statut : 
+    <input type="text" enum="A lire, En cours, Lu" name="Statut"  placeholder="En cours, Lu, A lire" value = "<%= Statut %>"> </br> </br>
+    <!-- <table>
+        <tr>
+            <th>1</th>
+            <td>Action</td>
+            <th>2</th>
+            <td>Aventure</td>
+            <th>3</th>
+            <td>Comédie</td>
+            <th>4</th>
+            <td>Horreur</td>
+            <th>5</th>
+            <td>Drama</td>
+        </tr>
+    </table> -->
+    <input class="Save" type="submit" name="save" value="Sauver"><br> </br>
+</form>
+<form action="/mainpage" method="get">
+    <button class="Back" type="submit"> Back </button> </br>
+ </form>
+
+
+ <style>
+
+    body{
+        background-color:honeydew;
+        width: 150%;
+        margin-left: 50px;
+    }
+
+    form{
+        background-color: #E0E0E0;
+        width:25%;
+        text-align:justificy;
+        border-width: 2px;
+        border-style: groove;
+        border-image: initial;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding-left: 6px;
+    }
+
+    input{
+        border-radius: 2px 2px 2px;
+    }
+
+    h1{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	    background-color: black;
+        width:25%;
+        text-align:center;
+        border-radius: 50px;
+	    color: white;
+    }
+
+    .save{
+        border-radius: 12px;
+        background-color: black;
+        border: white;
+        color: white;
+        font-family: Georgia;
+        font-size: 18px;
+    }
+
+    .Back{
+        border-radius: 12px;
+        background-color: green;
+        border: white;
+        color: white;
+        font-family: Georgia;
+        font-size: 18px;
+    }

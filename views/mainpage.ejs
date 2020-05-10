@@ -1,0 +1,240 @@
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"rel="stylesheet"id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<!------ Include the above in your HEAD tag ---------->
+ 
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"rel='stylesheet'type='text/css'>
+
+
+<!------ Include the above in your HEAD tag ---------->
+<head id = "head"> 
+    <div id="param">
+        <h2> IReader </h2>     <h3 style="font-style: italic">Manage your Readings_________________________________________________________ </h3>
+    </div>
+        <div class="option">
+         <ol>
+            <li> <!--delete account-->
+            <form action ="/confirm" method="GET">
+                <button type ="submit">
+                    <a action= "/confirm" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span>Delete account</a></button></form> 
+            </li>
+            <li> <!--Log OUT-->
+                <form action ="/loginPage" method="GET">
+                    <button type ="submit"> 
+                    <a action="/loginPage" class="btn btn-default"><span class="glyphicon glyphicon-off"></span> Log out</a></button></form>
+            </li>
+            <li> <!--Modifier profil-->
+            <form class="modif" action = "/userFormUpdate" method="GET">
+                <button type="submit">
+                    <a action="/userFormUpdate" class="btn btn-default"><span class="glyphicon glyphicon-user"></span>Edit profile</a><em></em></button>
+            </form>    
+            </li>        
+         </ol>
+        </div>
+    </div>
+</head>
+</br>
+<div>
+    <h1 style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-weight: 900; font-stretch: ultra-condensed"> Liste des lectures</h1>
+</div>
+
+<div id="menu">
+
+    <form action="/mainpage">
+        <button class="menu" type="submit"> Liste des livres </button> 
+    </form>
+
+    <form action="/readingadd">
+         <button class="menu" type="submit"> Ajouter un livre </button> 
+    </form>
+
+    <form action="/categoriename" method="GET"> <!--ajouter route catégorie-->
+         <button class="menu" type="submit"> Catégories </button> 
+    </form> 
+</div>
+
+<form action="/Search" method="GET"> 
+    <!-- <p style="font-size:15px; text-align: left; font-style: solid; color:black">Trouvez un livre:  -->
+    <p style="font-size:15px; text-align: left; padding-left: 15px;font-style: solid; color:black">
+    <span class="glyphicon glyphicon-search"></span> Trouvez un livre:
+    </br> <input class="champ" type="Search" name="Search" placeholder="Titre..."/>
+    <input style="color:black" class="bouton" type="submit" value="Rechercher "  />
+
+</p>
+</form>
+<!--pour la barre de recherche-->
+<!-- <div id="searchbar"></div>
+    <form action="">
+        <input class="champ" type="text" placeholder="Search...)"/>
+        <input class="bouton" type="button" value=" " />
+    </form>
+    </button>
+</div> -->
+
+<div class="container">
+	<div class="row">
+		<div class="span5">
+            <table class="
+            
+            table table-striped table-condensed">
+                <thead>
+                    <tr class= "colonnes">
+                        <th>Titre</th>
+                        <th>Auteur</th>
+                        <th>Année de publication</th>
+                        <th>Nombre de pages</th>   
+                        <th>
+                          <form action = "/Alire" method="GET"> <!--ajouter route à lire-->
+                            <button type="submit" class="btn btn-sm btn-primary btn-create">A lire</button>
+                          </form>
+                          <form action = "/EnCours" method="GET">
+                            <button type="submit" class="btn btn-sm btn-primary btn-create">En cours</button>
+                          </form>
+                          <form action = "/Finis" method="GET">
+                            <button type="submit" class="btn btn-sm btn-primary btn-create">Lu</button>
+                          </form>
+
+                      </th> 
+                        <th> Paramètres</th>                               
+                    </tr>
+                </thead>  
+                <% for (let i=0; i < reading.length; i++) { %>    
+               
+              <tbody>
+                <tr>
+                    <td><%= reading[i].Bookname %></td>
+                    <td><%= reading[i].Author %></td>
+                    <td><%= reading[i].Publication %></td>
+                    <td><%= reading[i].Pages %></td>
+                    <td><button><span  class="label label-success"><%= reading[i].Statut %></span></button></td>
+                    <!-- <td><button><span class="label label-success">A lire</span> </button></td>   
+                    <td><button><span class="label label-succes2">En cours</span></button></td>     
+                    <td> <button><span class="label label-success3">Lu</span> </button></td> -->
+                              <td align ="center">
+                                <form action = "/updateformreading/<%= reading[i].ReadingID %>" method="GET">
+                                  <button type="submit" ><em class="fa fa-pencil"></em></button>
+                                  </form>
+                                  <form action = "/deleteformreading/<%= reading[i].ReadingID %>" method="GET">
+                                    <button type="submit"><a action="/deleteformreading/<%= reading[i].ReadingID %>" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span></a><em class="label label-important"></em></button>
+                                    </form>
+                                <!-- <a class="btn btn-danger"><em class="fa fa-trash"></em></a>  -->
+                              </td> 
+                            
+                </tr>  
+            </tbody> <% } %>                               
+             
+            </table>
+            </div>
+	</div>
+</div>
+
+<style>
+    .table table-striped table-condensed{
+     border : solid 1px;
+     padding: 0;
+     margin: 0; 
+    }
+    .span5 {
+     padding: 0;
+     margin: 0; 
+     width: 100%;
+    }
+
+    h1{
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-bottom: 10px;
+        background-color:yellowgreen;
+        text-align: center;
+    }
+
+    h2
+    {
+        font-size: 50px;
+        text-align: center;
+        margin: 0;
+        color: white;
+        background-color: black;
+        width: 20%;
+        border-radius: 90px;
+        margin-left: 0;
+        padding-left: 0;
+    }
+    .colonnes
+    {
+        background-color:black;
+        color: white;
+    }
+    .menu
+    {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        /*float: right*/
+    }
+
+    .menu:hover
+    {
+        color: white;
+	    background-color: black;
+	    transition: 0.6s all; /*Info: transition de couleur lorsque je survole l'onglet*/
+    }
+
+    form
+    {
+        border: none;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        /*float:right*/
+        margin: 0;
+        padding: 0;
+    }
+
+    .label label-succes2
+    {
+        background-color:whitesmoke;
+    }
+
+    button
+    {
+        border-style: none;
+    }
+    #menu
+    {
+        display: flex;
+        float: right;
+        align-content: space-between;
+        margin-bottom: 15px;
+    }
+
+    #param
+    {
+        display: flex;
+        float: center;
+        align-content: space-between;
+        margin-bottom: 15px;
+    }
+
+    .option
+    {
+	    align-content: space-between;
+        padding-bottom: 10px;
+    }
+
+    ol li
+    {
+        float: right;
+        text-decoration: none; /*Info: désactiver le soulignement*/
+        list-style-type: none; /*Info: désactiver les puces*/
+    }
+</style>

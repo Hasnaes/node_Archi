@@ -1,0 +1,62 @@
+<h2><em>Etes-vous sur de vouloir supprimer votre compte ?</em></h2>
+
+    <p>Votre compte sera définitivement supprimé</p>
+        <form action ="/userRemove" method="POST">
+            <button class="Save" type ="submit">Oui</button> <!--post= appliquer modif dans les données-->
+        </form> 
+        <form action ="/mainpage" method="GET">
+            <button class="Save" type ="submit">Non</button> <!-- get: chercher info -->
+        </form> 
+
+
+<style>
+
+    body{
+        background-color:honeydew;
+        width: 150%;
+        margin-left: 50px;
+    }
+
+    form{
+        background-color: #E0E0E0;
+        width:25%;
+        text-align:justificy;
+        border-width: 2px;
+        border-style: groove;
+        border-image: initial;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding-left: 6px;
+    }
+
+    input{
+        border-radius: 2px 2px 2px;
+    }
+
+    h2{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	    background-color: black;
+        width:30%;
+        text-align:center;
+        border-radius: 50px;
+	    color: white;
+    }
+
+    .save{
+        border-radius: 12px;
+        background-color: black;
+        border: white;
+        color: white;
+        font-family: Georgia;
+        font-size: 18px;
+    }
+
+    .Back{
+        border-radius: 12px;
+        background-color: green;
+        border: white;
+        color: white;
+        font-family: Georgia;
+        font-size: 18px;
+    }
+
+</style>

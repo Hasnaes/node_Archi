@@ -1,0 +1,79 @@
+<body>
+    <h1>Ajout d'un livre</h1>
+
+    <form action="/readingnew" method="POST">
+    Titre: 
+    <input type="text" name="Bookname" value="<%= Bookname %>" ><br> </br>
+    Auteur: 
+    <input type="text" name="Author" value="<%= Author %>"><br> </br>
+    Date de parution:
+    <input type="int" name="Publication" value="<%= Publication %>" > <br> </br>
+    Nombre de pages:
+    <input type="int" name="Pages" value="<%= Pages %>" ><br> </br>
+    Catégorie:
+    <input type="int" name="FK_CatégorieID" value="<%= FK_CatégorieID %>" ><br> </br>
+    <input class="Save" type="submit" name="save" value="Sauver"><br> 
+<table>
+    1 = Roman
+    2 = Religion
+    3 = Politique
+</table>
+</form>
+<form action="/mainpage" method="get"> 
+    <input class="Back" type="submit"value="Retour à la liste" > 
+</form>
+
+</body>
+
+<style>
+
+    body{
+        background-color:honeydew;
+        width: 150%;
+        margin-left: 50px;
+    }
+
+    form{
+        background-color: #E0E0E0;
+        width:25%;
+        text-align:justificy;
+        border-width: 2px;
+        border-style: groove;
+        border-image: initial;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        padding-left: 6px;
+    }
+
+    input{
+        border-radius: 2px 2px 2px;
+    }
+
+    h1{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	    background-color: black;
+        width:25%;
+        text-align:center;
+        border-radius: 50px;
+	    color: white;
+    }
+
+    .save{
+        border-radius: 12px;
+        background-color: black;
+        border: white;
+        color: white;
+        font-family: Georgia;
+        font-size: 18px;
+    }
+
+    .Back{
+        border-radius: 12px;
+        background-color: green;
+        border: white;
+        color: white;
+        font-family: Georgia;
+        font-size: 18px;
+    }
+
+</style>
+

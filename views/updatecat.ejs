@@ -1,0 +1,24 @@
+<h1>Modifier une Catégorie</h1>
+<form action="/updatecat" method="POST">
+    <input type ="hidden" name ="CatégorieID" value = "<%= CatégorieID %>" >
+    Catégorie Name :
+    <input type="text" name="CatName"  value = "CatName"><br>
+    <table>
+        <tr>
+            <th>1</th>
+            <td>Action</td>
+            <th>2</th>
+            <td>Aventure</td>
+            <th>3</th>
+            <td>Comédie</td>
+            <th>4</th>
+            <td>Horreur</td>
+            <th>5</th>
+            <td>Drama</td>
+        </tr>
+    </table>
+    <input type="submit" name="save" value="Sauver"><br>
+</form>
+<form action="/mainpage" method="get">
+    <button type="submit"> Retour à la liste </button>
+ </form>
