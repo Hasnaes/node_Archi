@@ -51,18 +51,6 @@
          <button class="menu" type="submit"> Catégories </button> 
     </form> 
   </div>
-
-<div class="cat">
-    <% for (let i = 0 ;  i < catégorie.length ; i++) 
-    { %> 
-    <form action = "/categoriefiltre/<%= catégorie[i].category %>" method="GET">
-     <button type="submit" class="btn btn-sm btn-primary btn-create">
-     <%= catégorie[i].category %></button> 
-    </form>
-    <% } 
-    %>
-    
-</div>
 </div>
 
 <!-- <div class="container">

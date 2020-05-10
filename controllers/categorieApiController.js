@@ -5,7 +5,7 @@ let Categorie = require('../models/categoriesModel')
 exports.listeCatreading = function (req,res){
     connection.query("SELECT red.Bookname as nom, FK_iduser, red.Author as auteur, cat.CatName as category, red.Statut as statut FROM users.reading red inner join users.catégorie cat on red.FK_catégorieID = cat.CatégorieID where red.FK_iduser = ?;", function (error, resultSQL) { 
         if (error)  {
-            response.status(400).json({'message' : error});       
+            res.status(400).json({'message' : error});       
         }
         else {
             res.status(200);

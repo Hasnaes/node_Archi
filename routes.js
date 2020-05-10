@@ -41,8 +41,8 @@ router.get('/Api/mainpage', readingApiController.mainpage);
 router.get('/Api/Search/:Bookname', readingApiController.Search);
 router.get('/Api/Alire', readingApiController.Alire);
 router.get('/Api/EnCours', readingApiController.encours);
-router.get('/Api/Finis', readingApiController.Finis);
-router.post('/Api/readingnew', readingApiController.addreading);
+router.get('/Api/Lu', readingApiController.Lu);
+router.post('/Api/readingnew', readingApiController.readingnew);
 router.put('/Api/updatereading/:ReadingID', readingApiController.updatereading);
 router.delete('/Api/deletereading/:ReadingID', readingApiController.readingRemove);
 
@@ -57,7 +57,7 @@ router.get('/categoriename', categorieController.categoriename);
 router.get('/Api/categoriereading', categorieApiController.listeCatreading);
 router.get('/Api/categoriefiltre/:CatName', categorieApiController.catfiltre);
 router.post('/newcatreading', categorieApiController.addcatreading);
-// router.get('/categoriename', categorieApiController.categoriename);
+//---- router.get('/categoriename', categorieApiController.categoriename);
 
 // Route User
 router.get('/register', userController.userFormadd);
