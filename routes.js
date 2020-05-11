@@ -56,8 +56,8 @@ router.get('/categoriename', categorieController.categoriename);
 // Route API CATEGORIE
 router.get('/Api/categoriereading', categorieApiController.listeCatreading);
 router.get('/Api/categoriefiltre/:CatName', categorieApiController.catfiltre);
-router.post('/newcatreading', categorieApiController.addcatreading);
-//---- router.get('/categoriename', categorieApiController.categoriename);
+router.post('/Api/newcatreading', categorieApiController.addcatreading);
+router.get('/Api/categoriename', categorieApiController.categoriename);
 
 // Route User
 router.get('/register', userController.userFormadd);
