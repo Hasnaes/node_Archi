@@ -5,7 +5,7 @@ let Reading = require('../models/readingModel')
 
 exports.mainpage = function (req,res){ //export=pouvoir réutiliser les fonctions autre part
     console.log(req.session)
-    connection.query("SELECT red.ReadingID, red.FK_iduser, red.Bookname , red.Author , red.Publication,red.Pages, red.Statut, cat.CatName FROM users.reading red inner join users.catégorie cat on red.FK_catégorieID = cat.CatégorieID ", function (error, resultSQL) {
+    connection.query("SELECT red.FK_CatégorieID, red.ReadingID, red.FK_iduser, red.Bookname , red.Author , red.Publication,red.Pages, red.Statut, cat.CatName FROM users.reading red inner join users.catégorie cat on red.FK_catégorieID = cat.CatégorieID ", function (error, resultSQL) {
         if (error)  {
             res.status(400).json({'message' : error});     
         }

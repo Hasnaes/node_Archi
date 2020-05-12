@@ -1,7 +1,6 @@
 <h1>Ajouter une catégorie</h1>
 <form action="/newcatreading" method="POST">
-    Category ID:
-    <input type="int" min="6" max="10" name= "CatégorieID"  value = "<%= CatégorieID %>"><br> </br>
+    <input type="hidden" min="6" max="10" name= "CatégorieID"  value = "<%= CatégorieID %>"><br> </br>
     Nom de la catégorie:
     <input type="text" name="CatName" value="<%= CatName %>"><br></br>
     <!-- <table>

@@ -35,7 +35,7 @@ exports.catFormAddreading = function(req, res) {
     res.render('catAddreading.ejs', {CatégorieID : "", CatName : "" });
 }
 exports.addcatreading =  function(req, res) {
-    let CatégorieID =  req.body.CatégorieID;
+    let CatégorieID =  req.query.CatégorieID;
     let CatName = req.body.CatName;
     let categ = new Categorie (CatégorieID, CatName);
         console.log(categ);
