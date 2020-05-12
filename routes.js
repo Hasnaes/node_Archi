@@ -4,6 +4,7 @@ let router = express.Router();
 
 // création des variables 'controller' qui renvoit à des routes 
 var userController = require('./controllers/userController');// renvoit au module 'userController.js
+var userApiController = require('./controllers/userApiController');
 var readingController = require('./controllers/readingController');
 var readingApiController = require('./controllers/readingApiController');
 var categorieController = require('./controllers/categorieController');
@@ -69,6 +70,9 @@ router.get('/confirm', userController.confirm);
 router.get('/userFormUpdate', userController.UpdateFormUser);
 router.post('/userUpdate/:userid', userController.updateUser);
 
-
+// Routes User
+router.get('/Api/user', userApiController.listuser);
+router.post('/Api/user', userApiController.register);
+router.delete('/Api/user/:iduser', userApiController.userRemove);
 
 module.exports = router;
