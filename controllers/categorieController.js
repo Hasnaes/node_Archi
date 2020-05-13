@@ -31,6 +31,7 @@ exports.catfiltre = function (req,res){
         }
     });
 }
+
 exports.catFormAddreading = function(req, res) {
     res.render('catAddreading.ejs', {CatégorieID : "", CatName : "" });
 }

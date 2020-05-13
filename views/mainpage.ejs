@@ -4,6 +4,7 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"rel="stylesheet"id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <!------ Include the above in your HEAD tag ---------->
  
@@ -11,9 +12,9 @@
 
 
 <!------ Include the above in your HEAD tag ---------->
-<head id = "head"> 
+<head id = "head">
     <div id="param">
-        <h2> IReader </h2>     <h3 style="font-style: italic">Manage your Readings_________________________________________________________ </h3>
+        <h2> IReader </h2>     <h3 style="font-style: italic">Manage your Readings______________ </h3>
     </div>
         <div class="option">
          <ol>
@@ -59,28 +60,18 @@
 
 <form action="/Search" method="GET"> 
     <!-- <p style="font-size:15px; text-align: left; font-style: solid; color:black">Trouvez un livre:  -->
-    <p style="font-size:15px; text-align: left; padding-left: 15px;font-style: solid; color:black">
+    <p style="display:flex;font-size:15px; text-align: left; padding-left: 380px;font-style: solid; color:black; margin-top: 15px">
     <span class="glyphicon glyphicon-search"></span> Trouvez un livre:
     </br> <input class="champ" type="Search" name="Search" placeholder="Titre..."/>
     <input style="color:black" class="bouton" type="submit" value="Rechercher "  />
 
 </p>
 </form>
-<!--pour la barre de recherche-->
-<!-- <div id="searchbar"></div>
-    <form action="">
-        <input class="champ" type="text" placeholder="Search...)"/>
-        <input class="bouton" type="button" value=" " />
-    </form>
-    </button>
-</div> -->
 
 <div class="container">
 	<div class="row">
 		<div class="span5">
-            <table class="
-            
-            table table-striped table-condensed">
+            <table class="table table-striped table-condensed">
                 <thead>
                     <tr class= "colonnes">
                         <th>Titre</th>
@@ -89,13 +80,13 @@
                         <th>Nombre de pages</th>   
                         <th>
                           <form action = "/Alire" method="GET"> <!--ajouter route à lire-->
-                            <button type="submit" class="btn btn-sm btn-primary btn-create">A lire</button>
+                            <button class="btn2" type="submit" class= "btn-sm btn-primary btn-create">A lire</button>
                           </form>
                           <form action = "/EnCours" method="GET">
-                            <button type="submit" class="btn btn-sm btn-primary btn-create">En cours</button>
+                            <button class="btn2" type="submit" class="btn btn-sm btn-primary btn-create">En cours</button>
                           </form>
                           <form action = "/Finis" method="GET">
-                            <button type="submit" class="btn btn-sm btn-primary btn-create">Lu</button>
+                            <button class="btn2" type="submit" class="btn btn-sm btn-primary btn-create">Lu</button>
                           </form>
 
                       </th> 
@@ -133,11 +124,11 @@
 </div>
 
 <style>
-    .table table-striped table-condensed{
+    /* .table table-striped table-condensed{
      border : solid 1px;
      padding: 0;
      margin: 0; 
-    }
+    } */
     .span5 {
      padding: 0;
      margin: 0; 
@@ -211,10 +202,15 @@
     }
     #menu
     {
-        display: flex;
+        /* display: flex;
         float: right;
         align-content: space-between;
-        margin-bottom: 15px;
+        margin-bottom: 15px; */
+      display: flex;
+      padding-left: 380px;
+      align-content: space-between;
+      margin-bottom: 0px;
+      padding-bottom: 0;
     }
 
     #param
@@ -228,7 +224,8 @@
     .option
     {
 	    align-content: space-between;
-        padding-bottom: 10px;
+        display: flex;
+        padding-left:850px;
     }
 
     ol li
@@ -236,5 +233,15 @@
         float: right;
         text-decoration: none; /*Info: désactiver le soulignement*/
         list-style-type: none; /*Info: désactiver les puces*/
+    }
+
+    .btn2
+    {
+        font-size: 10px;
+        background-color:gray;
+    }
+
+    .btn2:hover{
+        background-color: black;
     }
 </style>

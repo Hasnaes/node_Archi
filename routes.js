@@ -72,7 +72,7 @@ router.post('/userUpdate/:userid', userController.updateUser);
 
 // Routes User
 router.get('/Api/user', userApiController.listuser);
-router.post('/Api/user', userApiController.register);
-router.delete('/Api/user/:iduser', userApiController.userRemove);
+router.post('/Api/auth_register', userApiController.register);
+router.delete('/Api/userRemove/:userid', userApiController.userRemove);
 
 module.exports = router;

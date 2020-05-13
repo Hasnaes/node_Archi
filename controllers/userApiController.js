@@ -25,7 +25,7 @@ exports.register = function(req, res) {
      if (err) throw err;
      else {
        console.log('Data inserted!', results);  
-       res.redirect('/loginPage');  
+       res.json({'message' : 'success'});
      }
    });
  };
