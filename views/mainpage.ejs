@@ -1,37 +1,39 @@
-<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
+<!DOCTYPE html> <html lang="fr">
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css2">
 <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"rel="stylesheet"id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<meta name="description" content="gestion des lectures"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
+<!-- <script src="app.js" async></script> -->
 <!------ Include the above in your HEAD tag ---------->
  
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"rel='stylesheet'type='text/css'>
-
+<title>Mes lectures</title>
 
 <!------ Include the above in your HEAD tag ---------->
 <head id = "head">
     <div id="param">
         <h2> IReader </h2>     <h3 style="font-style: italic">Manage your Readings______________ </h3>
     </div>
-        <div class="option">
+        <div role="contentinfo" class="option">
          <ol>
             <li> <!--delete account-->
             <form action ="/confirm" method="GET">
-                <button type ="submit">
-                    <a action= "/confirm" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span>Delete account</a></button></form> 
+                <button role="button"type ="submit">
+                    <a action= "/confirm" class="btn btn-default" aria-hidden="True"><span class="glyphicon glyphicon-remove"></span>Delete account</a></button></form> 
             </li>
             <li> <!--Log OUT-->
                 <form action ="/loginPage" method="GET">
-                    <button type ="submit"> 
-                    <a action="/loginPage" class="btn btn-default"><span class="glyphicon glyphicon-off"></span> Log out</a></button></form>
+                    <button role="button" type ="submit"> 
+                    <a action="/loginPage" class="btn btn-default" aria-hidden="True"><span class="glyphicon glyphicon-off"></span> Log out</a></button></form>
             </li>
             <li> <!--Modifier profil-->
             <form class="modif" action = "/userFormUpdate" method="GET">
-                <button type="submit">
-                    <a action="/userFormUpdate" class="btn btn-default"><span class="glyphicon glyphicon-user"></span>Edit profile</a><em></em></button>
+                <button role="button" type="submit">
+                    <a action="/userFormUpdate" class="btn btn-default" aria-hidden="True"><span class="glyphicon glyphicon-user"></span>Edit profile</a><em></em></button>
             </form>    
             </li>        
          </ol>
@@ -43,35 +45,35 @@
     <h1 style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-weight: 900; font-stretch: ultra-condensed"> Liste des lectures</h1>
 </div>
 
-<div id="menu">
+<div role="navigation" id="menu">
 
     <form action="/mainpage">
-        <button class="menu" type="submit"> Liste des livres </button> 
+        <button role="button" class="menu" type="submit"> Liste des livres </button> 
     </form>
 
     <form action="/readingadd">
-         <button class="menu" type="submit"> Ajouter un livre </button> 
+         <button role="button" class="menu" type="submit"> Ajouter un livre </button> 
     </form>
 
     <form action="/categoriename" method="GET"> <!--ajouter route catégorie-->
-         <button class="menu" type="submit"> Catégories </button> 
+         <button role="button" class="menu" type="submit"> Catégories </button> 
     </form> 
 </div>
 
 <form action="/Search" method="GET"> 
-    <!-- <p style="font-size:15px; text-align: left; font-style: solid; color:black">Trouvez un livre:  -->
-    <p style="display:flex;font-size:15px; text-align: left; padding-left: 380px;font-style: solid; color:black; margin-top: 15px">
-    <span class="glyphicon glyphicon-search"></span> Trouvez un livre:
-    </br> <input class="champ" type="Search" name="Search" placeholder="Titre..."/>
-    <input style="color:black" class="bouton" type="submit" value="Rechercher "  />
-
-</p>
+    <p class="Search">
+        <input role="search" class="champ" type="Search" name="Search" placeholder="Titre..."/>
+        <!-- <input style="color:black" class="bouton" type="submit" value="Rechercher "  /> -->
+    <button aria-label="search">
+        <img style="width: 25px; height: 25px" src="https://www.cjoint.com/doc/20_05/JEqqArgMWVG_search.png" aria-hidden="true"/>
+<span class="accessible-hidden"> Search </span>
+</button> </p>
 </form>
 
 <div class="container">
 	<div class="row">
 		<div class="span5">
-            <table class="table table-striped table-condensed">
+            <table class="table-responsive" class="table table-striped table-condensed">
                 <thead>
                     <tr class= "colonnes">
                         <th>Titre</th>
@@ -79,7 +81,7 @@
                         <th>Année de publication</th>
                         <th>Nombre de pages</th>   
                         <th>
-                          <form action = "/Alire" method="GET"> <!--ajouter route à lire-->
+                          <form action = "/Alire" method="GET"> 
                             <button class="btn2" type="submit" class= "btn-sm btn-primary btn-create">A lire</button>
                           </form>
                           <form action = "/EnCours" method="GET">
@@ -97,20 +99,20 @@
                
               <tbody>
                 <tr>
-                    <td><%= reading[i].Bookname %></td>
-                    <td><%= reading[i].Author %></td>
-                    <td><%= reading[i].Publication %></td>
-                    <td><%= reading[i].Pages %></td>
-                    <td><button><span  class="label label-success"><%= reading[i].Statut %></span></button></td>
+                    <td data-label="Titre"><%= reading[i].Bookname %></td>
+                    <td data-label="Auteur"><%= reading[i].Author %></td>
+                    <td data-label="Publication"><%= reading[i].Publication %></td>
+                    <td data-label="Pages"><%= reading[i].Pages %></td>
+                    <td data-label="Statut"><button><span  class="label label-success" style="background-color:#083000"><%= reading[i].Statut %></span></button></td>
                     <!-- <td><button><span class="label label-success">A lire</span> </button></td>   
                     <td><button><span class="label label-succes2">En cours</span></button></td>     
                     <td> <button><span class="label label-success3">Lu</span> </button></td> -->
-                              <td align ="center">
-                                <form action = "/updateformreading/<%= reading[i].ReadingID %>" method="GET">
-                                  <button type="submit" ><em class="fa fa-pencil"></em></button>
+                              <td align ="center" data-label="Paramètres">
+                                <form  action = "/updateformreading/<%= reading[i].ReadingID %>" method="GET">
+                                  <button aria-label="updatebutton" class="btnmodif" type="submit" ><em class="fa fa-pencil" aria-hidden="True"></em></button>
                                   </form>
                                   <form action = "/deleteformreading/<%= reading[i].ReadingID %>" method="GET">
-                                    <button type="submit"><a action="/deleteformreading/<%= reading[i].ReadingID %>" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span></a><em class="label label-important"></em></button>
+                                    <button aria-label="deleting" type="submit"><a action="/deleteformreading/<%= reading[i].ReadingID %>" class="btn btn-default"><span class="glyphicon glyphicon-trash"></span></a><em class="label label-important" aria-hidden="True"></em></button>
                                     </form>
                                 <!-- <a class="btn btn-danger"><em class="fa fa-trash"></em></a>  -->
                               </td> 
@@ -119,10 +121,14 @@
             </tbody> <% } %>                               
              
             </table>
+            <button role="button"id="boutonretour"> <a href="#menu"> 
+            <img class="retour2" src="https://www.cjoint.com/doc/20_05/JEqppiyjGuG_fleche.png" alt="fleche de retour" aria-hidden="True"></a>
+            </button>
             </div>
-	</div>
-</div>
 
+    </div>
+</div>
+</html>
 <style>
     /* .table table-striped table-condensed{
      border : solid 1px;
@@ -135,14 +141,16 @@
      width: 100%;
     }
 
+    table{
+        width: 100%;
+    }
     h1{
         padding-top: 10px;
         padding-left: 10px;
         padding-bottom: 10px;
-        background-color:yellowgreen;
+        background-color:#8fc26d;
         text-align: center;
     }
-
     h2
     {
         font-size: 50px;
@@ -159,12 +167,13 @@
     {
         background-color:black;
         color: white;
+        height: 50px; 
     }
     .menu
     {
-        background-color: #4CAF50; /* Green */
+        background-color: #d4facd; /* Green */
         border: none;
-        color: white;
+        color: black;
         padding: 15px 32px;
         text-align: center;
         text-decoration: none;
@@ -172,14 +181,12 @@
         font-size: 16px;
         /*float: right*/
     }
-
-    .menu:hover
+    .menu:hover 
     {
         color: white;
 	    background-color: black;
 	    transition: 0.6s all; /*Info: transition de couleur lorsque je survole l'onglet*/
     }
-
     form
     {
         border: none;
@@ -190,12 +197,10 @@
         margin: 0;
         padding: 0;
     }
-
     .label label-succes2
     {
         background-color:whitesmoke;
     }
-
     button
     {
         border-style: none;
@@ -212,7 +217,22 @@
       margin-bottom: 0px;
       padding-bottom: 0;
     }
+    .Search
+    {
+        display:flex;
+        font-size:15px; 
+        text-align: left; 
+        padding-left: 500px; 
+        padding-top: 25px; 
+        font-style: solid; 
+        color:black; 
+        margin-top: 15px"
+    }
 
+    span.accessible-hidden {
+	    position: absolute;
+	    left: -10000px;
+    }
     #param
     {
         display: flex;
@@ -220,28 +240,150 @@
         align-content: space-between;
         margin-bottom: 15px;
     }
-
     .option
     {
 	    align-content: space-between;
         display: flex;
         padding-left:850px;
     }
-
     ol li
     {
         float: right;
         text-decoration: none; /*Info: désactiver le soulignement*/
         list-style-type: none; /*Info: désactiver les puces*/
     }
-
     .btn2
     {
         font-size: 10px;
         background-color:gray;
     }
-
     .btn2:hover{
         background-color: black;
+    }
+
+    button{
+        background: none;
+    }
+
+    #boutonretour{
+        position: fixed; 
+    }
+
+    .retour2{
+	width: 50px;
+	height: 50px;
+}
+
+.btnmodif{
+    width: 48px;
+    height: 48px;
+}
+/*Partie RESPONSIVE*/
+    @media only screen and (max-width: 500px)
+    {
+    
+      body{
+          margin: 0;
+          padding: 0;
+      }
+      h1{
+        text-align: center;
+        padding-bottom: 20px; 
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+
+      h2{
+          font-size: 50px;
+          border-radius: 10%;
+          width: 100%;
+      }
+
+      h3{
+          display: none;
+      }
+      #menu{
+        padding-left: 10px;
+        align-content: center; 
+        margin-top: 15px; 
+      }
+
+      .menu{
+        font-size:11px; 
+        border-radius: 80px;
+      }
+
+      .Search{
+          padding-left: 100px;
+          padding-top: 20px; 
+          margin-left: 0;
+      }
+
+      .option{
+        padding-left: 40px;
+        align-items: center;
+      }
+
+      ul,ol{
+        margin: 0 0 0px 0px;
+      }
+        .table-responsive table, 
+        .table-responsive thead, 
+        .table-responsive tbody, 
+        .table-responsive tr, 
+        .table-responsive th, 
+        .table-responsive td {
+            display:block;
+            margin-left:0;
+        }
+
+        .table-responsive table{
+            width:100%;
+        }
+        .table-responsive thead{
+            display:none;
+        }
+
+        .table-responsive td{
+            padding-left: 200px;
+            position: relative;
+            margin-top: -1;
+            text-align: center;
+            background-color: white;
+            height: 40px;
+        }
+
+        .table-responsive td:nth-child(odd){
+            background-color:#F5F5F5;
+        }
+
+        .table-responsive td:before{
+            padding: 5px;
+            content:attr(data-label);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            bottom: 0;
+            background-color: black;
+            color: white;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            width: 200px;
+        }
+
+        .table-responsive tr {
+            margin-bottom: 1rem;
+        }
+        #boutonretour{
+            position: fixed; 
+            bottom: 2px; 
+            right: 2px;
+        }
+        .btnmodif{
+    width: 48px;
+    height: 48px;
+}
     }
 </style>

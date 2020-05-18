@@ -24,7 +24,7 @@ const check = (req, res, next) => { // req et res correspondent aux paramètres 
 router.get('/', (request, response) => response.redirect('/loginPage'));
 
 // Routes liées aux READING
-// router.get('/user', userController.userHome);
+
 router.get('/mainpage',check, readingController.mainpage);
 router.get('/readingadd', readingController.readingFormAdd);
 router.post('/readingnew', readingController.readingnew);
@@ -66,7 +66,7 @@ router.post('/auth_register', userController.register);
 router.get ('/loginPage', userController.loginpage);
 router.post('/auth_login', userController.login);
 router.post('/userRemove', userController.userRemove);
-router.get('/confirm', userController.confirm);
+router.get('/confirm', userController.confirm); //form 
 router.get('/userFormUpdate', userController.UpdateFormUser);
 router.post('/userUpdate/:userid', userController.updateUser);
 

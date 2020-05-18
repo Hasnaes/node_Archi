@@ -1,63 +1,69 @@
+<!DOCTYPE html><html lang="fr">
+<meta name="description" content="ajout d'une lecture"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ajout d'une lecture</title>
 <body>
     <h1>Ajouter un livre</h1>
 
-    <form action="/readingnew" method="POST">
+    <form role="contentinfo" action="/readingnew" method="POST">
     Titre: 
-    <input type="text" name="Bookname" value="<%= Bookname %>" ><br> </br>
+    <input aria-label="name"role="textbox" type="text" name="Bookname" value="<%= Bookname %>" ><br> </br>
     Auteur: 
-    <input type="text" name="Author" value="<%= Author %>"><br> </br>
+    <input aria-label="author"role="textbox" type="text" name="Author" value="<%= Author %>"><br> </br>
     Date de parution:
-    <input type="int" name="Publication" value="<%= Publication %>" > <br> </br>
+    <input aria-label="publication" role="textbox" type="int" name="Publication" value="<%= Publication %>" > <br> </br>
     Nombre de pages:
-    <input type="int" name="Pages" value="<%= Pages %>" ><br> </br>
+    <input aria-label="pages" role="textbox" type="int" name="Pages" value="<%= Pages %>" ><br> </br>
     Catégorie:
-    <input type="int" name="FK_CatégorieID" value="<%= FK_CatégorieID %>" ><br> </br>
+    <input aria-label="id" role="textbox"type="int" name="FK_CatégorieID" value="<%= FK_CatégorieID %>" ><br> </br>
     <input class="Save" type="submit" name="save" value="Sauver"><br> 
 <table>
-    1 = Roman
-    2 = Religion
-    3 = Politique
+    1: Roman
+    2: Religion
+    3: Politique
+    4: Histoire </br>
+    6: Policier
 </table>
 </form>
-<form action="/mainpage" method="get"> 
+<form role="button" action="/mainpage" method="get"> 
     <input class="Back" type="submit"value="Retour à la liste" > 
 </form>
 
 </body>
-
+</html>
 <style>
 
-    body{
-        background-color:honeydew;
-        width: 150%;
-        margin-left: 50px;
-    }
+body{
+    background-color:honeydew;
+    width: 100%;
+    margin-left: 50px;
+}
 
-    form{
-        background-color: #E0E0E0;
-        width:25%;
-        text-align:justificy;
-        border-width: 2px;
-        border-style: groove;
-        border-image: initial;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        padding-left: 6px;
-    }
+form{
+    background-color: #E0E0E0;
+    width:25%;
+    text-align:justificy;
+    border-width: 2px;
+    border-style: groove;
+    border-image: initial;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding-left: 6px;
+}
 
-    input{
-        border-radius: 2px 2px 2px;
-    }
+input{
+    border-radius: 2px 2px 2px;
+}
 
-    h1{
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	    background-color: black;
-        width:25%;
-        text-align:center;
-        border-radius: 50px;
-	    color: white;
-    }
+h1{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: black;
+    width:25%;
+    text-align:center;
+    border-radius: 50px;
+    color: white;
+}
 
-    .save{
+    .Save{
         border-radius: 12px;
         background-color: black;
         border: white;
@@ -75,5 +81,26 @@
         font-size: 18px;
     }
 
+    @media only screen and (max-width: 500px)
+    {
+    
+      body{
+        margin: 0;
+        padding: 0;
+      }
+
+      h1{
+        font-size: 30px;
+        border-radius: 10%;
+        width: 100%;
+      }
+
+      ul,ol{
+        margin: 0 0 0px 0px;
+    }
+    form{
+        width: 90%;
+    }
+    }
 </style>
 

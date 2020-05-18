@@ -1,9 +1,13 @@
+<!DOCTYPE html> <html lang="fr">
+<meta name="description" content="ajout catégorie"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Ajout d'une catégorie</title>
 <h1>Ajouter une catégorie</h1>
-<form action="/newcatreading" method="POST">
-    <input type="hidden" min="6" max="10" name= "CatégorieID"  value = "<%= CatégorieID %>"><br> </br>
+<form role="contentinfo" action="/newcatreading" method="POST">
+    <input role="textbox" type="hidden" min="6" max="10" name= "CatégorieID"  value = "<%= CatégorieID %>"><br> </br>
     Nom de la catégorie:
-    <input type="text" name="CatName" value="<%= CatName %>"><br></br>
-    <table>
+    <input role="textbox" type="text" name="CatName" value="<%= CatName %>"><br></br>
+    <table role="textbox" class="table-responsive">
         <tr> <p style="font-weight:bold"> /!\Existantes: </p></br>
             <th>1</th>
             <td>Roman</td>
@@ -17,30 +21,30 @@
             <td>Policier</td>
         </tr>
     </table> 
-    <input class="Save" type="submit" name="save" value="Sauver"><br></br>
+    <input aria-label="save" role="button" class="Save" type="submit" name="save" value="Sauver"><br></br>
 </form>
-<form action="/categoriename" method="get">
+<form role="button" action="/categoriename" method="get">
     <button class="Back" type="submit"> Retour à la liste </button></br>
  </form>
 
-
+</html>
 <style>
 
     body{
         background-color:honeydew;
-        width: 150%;
+        width: 100%;
         margin-left: 50px;
     }
 
     form{
         background-color: #E0E0E0;
-        width:25%;
         text-align:justificy;
         border-width: 2px;
         border-style: groove;
         border-image: initial;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         padding-left: 6px;
+        width: 30%;
     }
 
     input{
@@ -56,7 +60,7 @@
 	    color: white;
     }
 
-    .save{
+    .Save{
         border-radius: 12px;
         background-color: black;
         border: white;
@@ -74,4 +78,41 @@
         font-size: 18px;
     }
 
+    @media only screen and (max-width: 500px)
+    {
+    
+      body{
+        margin: 0;
+        padding: 0;
+      }
+      h1{
+        font-size: 30px;
+        border-radius: 10%;
+        width: 100%;
+        margin-top: 10px;
+      }
+      form{
+        width: 96%;
+    }
+    .Save{
+        border-radius: 12px;
+        background-color: black;
+        margin-top: 10px;
+        border: white;
+        color: white;
+        font-family: Georgia;
+        font-size: 18px;
+    }
+    .Back{
+        border-radius: 12px;
+        background-color: green;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border: white;
+        color: white;
+        font-family: Georgia;
+        font-size: 18px;
+    }
+
+    }
 </style>

@@ -1,25 +1,30 @@
+<!DOCTYPE html> <html lang="fr">
+<meta name="description" content="modifier profil utilisateur"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Modification du profil utilisateur</title>
+
 <h1>Modifier votre profil</h1>
-<form action="/userUpdate/<%= userid %>" method="POST">
-    <input type ="hidden" name ="userid" value = "<%= userid %>" >
+<form role="contentinfo" action="/userUpdate/<%= userid %>" method="POST">
+    <input  arial-label="iduser" role="textbox" type ="hidden" name ="userid" value = "<%= userid %>" >
     Nom : 
-    <input type="text" name="name" value="<%= name %>" ><br></br>
-    email:
-    <input type="email" name="email"  value = "<%= email %>"><br></br>
+    <input  role="textbox" type="text" name="name" value="<%= name %>" ><br></br>
+    Email:
+    <input  role="textbox" type="email" name="email"  value = "<%= email %>"><br></br>
     Password : 
-    <input type="password" name="password" value="<%= password %>"><br></br>
+    <input  role="textbox" type="password" name="password" value="<%= password %>"><br></br>
     </table>
-    <input class="Save" type="submit" name="save" value="Sauver"><br></br>
+    <input  aria-label="save" role="button" class="Save" type="submit" name="save" value="Sauver"><br></br>
 </form>
-<form action="/mainpage" method="get">
+<form role="button" action="/mainpage" method="get">
     <button class="Back" type="submit"> Retour à la liste </button></br>
  </form>
 
-
+</html>
  <style>
 
     body{
         background-color:honeydew;
-        width: 150%;
+        width: 100%;
         margin-left: 50px;
     }
 
@@ -47,7 +52,7 @@
 	    color: white;
     }
 
-    .save{
+    .Save{
         border-radius: 12px;
         background-color: black;
         border: white;
@@ -65,4 +70,29 @@
         font-size: 18px;
     }
 
+    @media only screen and (max-width: 500px)
+    {
+    
+      body{
+        margin: 0;
+        padding: 0;
+      }
+
+      h1{
+        font-size: 30px;
+        border-radius: 10%;
+        width: 100%;
+      }
+
+      ul,ol{
+        margin: 0 0 0px 0px;
+      }
+      input {
+        font-size: 20px;
+      }
+    form{
+        width: 96%;
+        font-size: 30px; 
+    }
+    }
 </style>

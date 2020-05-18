@@ -5,7 +5,7 @@ let bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-// **************************************************************************************************
+
 // Session = définit la session privée (permet de rester sur les pages de ma session)
 var session = require('express-session');
 
@@ -15,7 +15,7 @@ app.use(session({
     saveUninitialized : false
 })
 );
-// ***********************************************************************************************************
+
 // Cookie
 var cookieParser = require ('cookie-Parser')
 app.use(cookieParser())

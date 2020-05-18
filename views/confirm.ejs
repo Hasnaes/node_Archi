@@ -1,19 +1,23 @@
-<h2><em>Etes-vous sur de vouloir supprimer votre compte ?</em></h2>
+<!DOCTYPE html> <html lang="fr">
+<meta name="description" content="confirmer la suprression"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Suppression du compte</title>
+<h1><em>Etes-vous sur de vouloir supprimer votre compte ?</em></h1>
 
     <p>Votre compte sera définitivement supprimé</p>
-        <form action ="/userRemove" method="POST">
-            <button class="Save" type ="submit">Oui</button> <!--post= appliquer modif dans les données-->
+        <form role="contentifno" action ="/userRemove" method="POST">
+            <button aria-label="confirm" role="button" class="Save" type ="submit">Oui</button> <!--post= appliquer modif dans les données-->
         </form> 
         <form action ="/mainpage" method="GET">
-            <button class="Save" type ="submit">Non</button> <!-- get: chercher info -->
+            <button aria-label="noconfirm" role="button" class="Save" type ="submit">Non</button> <!-- get: chercher info -->
         </form> 
 
-
+</html>
 <style>
 
     body{
         background-color:honeydew;
-        width: 150%;
+        width: 100%;
         margin-left: 50px;
     }
 
@@ -26,22 +30,30 @@
         border-image: initial;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         padding-left: 6px;
+        background: none;
+        border: none; 
     }
 
+    button{
+        width: 150px;
+        margin-bottom: 10px; 
+        margin-left: 250px; 
+    }
     input{
         border-radius: 2px 2px 2px;
     }
 
-    h2{
+    h1{
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	    background-color: black;
-        width:30%;
+        width:50%;
         text-align:center;
         border-radius: 50px;
 	    color: white;
+        font-size: 25px;
     }
 
-    .save{
+    .Save{
         border-radius: 12px;
         background-color: black;
         border: white;
@@ -59,4 +71,48 @@
         font-size: 18px;
     }
 
+    p{
+        margin-left: 150px;
+        font-size: 20px; 
+    }
+    @media only screen and (max-width: 500px)
+    {
+    
+      body{
+        margin: 0;
+        padding: 0;
+      }
+
+      h1{
+        font-size: 25px;
+        border-radius: 10%;
+        width: 100%;
+      }
+
+      p{
+          margin-right: 15px; 
+          margin-left: 0; 
+          font-size: 18px; 
+          font-weight: bold;
+          text-align: center;
+      }
+    
+      ul,ol{
+        margin: 0 0 0px 0px;
+      }
+      input {
+        font-size: 10px;
+      }
+    form{
+        width: 96%;
+        font-size: 20px; 
+        background: none;
+        border: none;
+    }
+    button{
+        margin-left: 150px;
+        width: 25%;
+        height: 25%;
+    }
+    }
 </style>

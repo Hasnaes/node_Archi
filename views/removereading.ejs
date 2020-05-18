@@ -1,16 +1,20 @@
+<!DOCTYPE html><html lang="fr">
+<meta name="description" content="suppression d'une lecture"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title> Suppression d'une lecture</title>
 <h1>Supprimer un livre</h1>
-<form action="/deletereading/<%= ReadingID %>" method="POST">
+<form role="contentinfo" action="/deletereading/<%= ReadingID %>" method="POST">
     <input type ="hidden" name ="ReadingID" value = "<%= ReadingID %>" >
     Titre : 
-    <input type="text" name="Bookname" value="<%= Bookname %>" ><br></br>
+    <input aria-label="name" type="text" name="Bookname" value="<%= Bookname %>" ><br></br>
     Auteur:
-    <input type="text" name="Author" value="<%= Author %>"> <br></br>
+    <input aria-label="author" type="text" name="Author" value="<%= Author %>"> <br></br>
     Date de parution:
-    <input type="number" name="Publication"  value = "<%= Publication %>"><br></br>
+    <input aria-label="publication" type="number" name="Publication"  value = "<%= Publication %>"><br></br>
     Pages
-    <input type="number" name="Pages" value="<%= Pages %>"><br></br>
+    <input aria-label="pages" type="number" name="Pages" value="<%= Pages %>"><br></br>
     Catégorie: 
-    <input type="number" min="0" max="10" name="FK_CatégorieID"  value = "<%= FK_CatégorieID %>"><br></br>
+    <input aria-label="id" type="number" min="0" max="10" name="FK_CatégorieID"  value = "<%= FK_CatégorieID %>"><br></br>
     
     <!-- <table>
         <tr>
@@ -28,15 +32,15 @@
     </table> -->
     <input class="Save" type="submit" name="Supprimer" value="Delete"><br></br>
 </form>
-<form action="/mainpage" method="get">
+<form role="button" action="/mainpage" method="get">
     <button class="Back" type="submit"> Retour à la liste </button></br>
  </form>
-
+</html>
 <style>
 
     body{
         background-color:honeydew;
-        width: 150%;
+        width: 100%;
         margin-left: 50px;
     }
 
@@ -64,7 +68,7 @@
 	    color: white;
     }
 
-    .save{
+    .Save{
         border-radius: 12px;
         background-color: black;
         border: white;
@@ -82,4 +86,26 @@
         font-size: 18px;
     }
 
+
+    @media only screen and (max-width: 500px)
+    {
+    
+      body{
+        margin: 0;
+        padding: 0;
+      }
+
+      h1{
+        font-size: 30px;
+        border-radius: 10%;
+        width: 100%;
+      }
+
+      ul,ol{
+        margin: 0 0 0px 0px;
+    }
+    form{
+        width: 98%;
+    }
+    }
 </style>

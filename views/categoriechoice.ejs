@@ -1,31 +1,34 @@
+<!DOCTYPE html> <html lang="fr">
 <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"rel="stylesheet"id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
+<meta name="description" content="gestion des lectures "/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Gestion des lectures</title>
 <!--------------------------------------------------En tête du site------------------------------------------------>
 <head id = "head"> 
   <div id="param">
       <h2> IReader </h2>     <h3 style="font-style: italic">Manage your Readings___________________________________________________ </h3>
   </div>
-      <div class="option">
+      <div role="contentinfo" class="option">
        <ol>
           <li> <!--delete account-->
           <form action ="/confirm" method="GET">
-              <button type ="submit">
-                  <a action= "/confirm" class="btn btn-default"><span class="glyphicon glyphicon-remove"></span>Delete account</a></button></form> 
+              <button role="button" type ="submit">
+                  <a action= "/confirm" class="btn btn-default" aria-hidden="True"><span class="glyphicon glyphicon-remove"></span>Delete account</a></button></form> 
           </li>
           <li> <!--Log OUT-->
               <form action ="/loginPage" method="GET">
-                  <button type ="submit"> 
-                  <a action="/loginPage" class="btn btn-default"><span class="glyphicon glyphicon-off"></span> Log out</a></button></form>
+                  <button role="button" type ="submit"> 
+                  <a action="/loginPage" class="btn btn-default" aria-hidden="True"><span class="glyphicon glyphicon-off"></span> Log out</a></button></form>
           </li>
           <li> <!--Modifier profil-->
           <form class="modif" action = "/userFormUpdate" method="GET">
-              <button type="submit">
-                  <a action="/userFormUpdate" class="btn btn-default"><span class="glyphicon glyphicon-user"></span>Edit profile</a><em></em></button>
+              <button role="button" type="submit">
+                  <a action="/userFormUpdate" class="btn btn-default" aria-hidden="True"><span class="glyphicon glyphicon-user"></span>Edit profile</a><em></em></button>
           </form>    
           </li>        
        </ol>
@@ -35,27 +38,27 @@
 
 </br>
 <div>
-    <h1 style="font-family:Verdana, Geneva, Tahoma, sans-serif; font-weight: 900; font-stretch: ultra-condensed"> Livres par catégorie</h1>
+    <h1> Livres par catégorie</h1>
 </div>
 
-<div id="menu">
+<div role="navigation" id="menu">
     <form action = "/mainpage" method="GET">
-        <button class="menu" type="submit"> Liste des livres </button> 
+        <button role="button" class="menu" type="submit"> Liste des livres </button> 
     </form>
 
     <form action="/addcategorie" method="GET">
-      <button class="menu" type="submit"> Ajouter une catégorie </button> 
+      <button role="button" class="menu" type="submit"> Ajouter une catégorie </button> 
     </form>
 
   </br>
     <form action= "/categoriereading" method="GET">
-      <button class="menu" type="submit">All</button>
+      <button role="button" class="menu" type="submit">All</button>
     </form>
 
 
   </div>
 
-<div class="cat">
+<div role="contentinfo" class="cat">
 
     <% for (let i = 0 ;  i < catégorie.length ; i++) 
     { %> </br> 
@@ -80,7 +83,7 @@
             </div>
 
 </div></div></div>
-
+</html>
 
 <style>
   .table table-striped table-condensed{
@@ -94,41 +97,44 @@
    width: 100%;
   }
   h1{
-      padding-top: 10px;
-      padding-left: 10px;
-      padding-bottom: 10px;
-      background-color:black;
-      color: white; 
-      text-align: center;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    background-color:#2d3254;
+    color: white; 
+    text-align: center;
+    font-family:Verdana, Geneva, Tahoma, sans-serif; 
+    font-weight: 900; 
+    font-stretch: ultra-condensed"
   }
   h2
   {
-      font-size: 50px;
-      text-align: center;
-      margin: 0;
-      color: white;
-      background-color: black;
-      width: 20%;
-      border-radius: 90px;
-      margin-left: 0;
-      padding-left: 0;
+    font-size: 50px;
+    text-align: center;
+    margin: 0;
+    color: white;
+    background-color: black;
+    width: 20%;
+    border-radius: 90px;
+    margin-left: 0;
+    padding-left: 0;
   }
   .colonnes
   {
-      background-color:#4CAF50;
-      color: white;
+    background-color:#4CAF50;
+    color: white;
   }
   .menu
   {
-      background-color:black; /* Green */
-      border: none;
-      color: white;
-      padding: 15px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      /*float: right*/
+    background-color:#5A5E6B; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    /*float: right*/
   }
   .menu:hover
   {
@@ -138,72 +144,167 @@
   }
   form
   {
-      border: none;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      margin: 0;
-      padding: 0; 
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0;
+    padding: 0; 
   }
   .label label-succes2
   {
-      background-color:whitesmoke;
+    background-color:whitesmoke;
   }
   button
   {
-      border-style: none;
+    border-style: none;
   }
   #menu
   {
-      display: flex;
-      padding-left: 380px;
-      align-content: space-between;
-      margin-bottom: 0px;
-      padding-bottom: 0;
+    display: flex;
+    padding-left: 380px;
+    align-content: space-between;
+    margin-bottom: 0px;
+    padding-bottom: 0;
 
   }
   #param
   {
-      display: flex;
-      float: center;
-      align-content: space-between;
-      margin-bottom: 15px;
+    display: flex;
+    float: center;
+    align-content: space-between;
+    margin-bottom: 15px;
   }
   .option
   {
-      align-content: space-between;
-      padding-bottom: 10px;
+    align-content: space-between;
+    padding-bottom: 10px;
   }
   ol li
   {
-      float: right;
-      text-decoration: none; /*Info: désactiver le soulignement*/
-      list-style-type: none; /*Info: désactiver les puces*/
+    float: right;
+    text-decoration: none; /*Info: désactiver le soulignement*/
+    list-style-type: none; /*Info: désactiver les puces*/
   }
 
 
   .cat, .cat button{
-      color: white;
-      text-align: center;
-      text-decoration: none;
-      display:inline-block;
-      font-size: 20px;
-      /* float: right*/
-	/* display : block;
-	position :absolute;
-	text-align : center;
-  margin-left: 250px;
-  background-color: green;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 15px; */
-
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display:inline-block;
+    font-size: 20px;
   }
-  .cat, .cat button:hover{
+.cat, .cat button:hover{
     color: black;
   }
 
 .indiv
 {
-  background-color:teal;
-
+  background-color:#181769;
+  /*#778899*/
 }
+
+button{
+  background: none; 
+}
+
+
+/*Partie RESPONSIVE*/
+@media only screen and (max-width: 500px)
+  {
+    
+  body{
+    margin: 0;
+    padding: 0;
+  }
+
+  h1{
+    text-align: center;
+    padding-bottom: 20px; 
+    margin-bottom: 0px;
+    margin-top: 40px;
+    font-size: 30px;
+    }
+
+  h2{
+    font-size: 50px;
+    border-radius: 10%;
+    width: 100%;
+    }
+
+  h3{
+    display: none;
+    }
+
+  #menu{
+    padding-left: 15px;
+    align-content: center; 
+    margin-top: 15px;
+    }
+
+    .menu{
+        font-size: 11px; 
+        border-radius: 80px;
+      }
+
+  .option{
+     padding-left: 0;
+     padding-right: 20px; 
+     align-items: center;
+    }
+
+      ol,li{
+          margin-right: 0px;
+      }
+        .table-responsive table, 
+        .table-responsive thead, 
+        .table-responsive tbody, 
+        .table-responsive tr, 
+        .table-responsive th, 
+        .table-responsive td {
+            display:block;
+            margin-left:0;
+        }
+
+        .table-responsive table{
+            width:100%;
+        }
+        .table-responsive thead{
+            display:none;
+        }
+
+        .table-responsive td{
+            padding-left: 200px;
+            position: relative;
+            margin-top: -1;
+            text-align: center;
+            background-color: white;
+            height: 40px;
+        }
+
+        .table-responsive td:nth-child(odd){
+            background-color:#F5F5F5;
+        }
+
+        .table-responsive td:before{
+            padding: 5px;
+            content:attr(data-label);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            bottom: 0;
+            background-color: black;
+            color: white;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            width: 200px;
+        }
+
+        .table-responsive tr {
+            margin-bottom: 1rem;
+        }
+    }
+</style>
